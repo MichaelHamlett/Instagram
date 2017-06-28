@@ -227,7 +227,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="Instagram" id="YQF-i2-VaB">
-                        <barButtonItem key="leftBarButtonItem" title="Logout" id="ezG-0E-Eko">
+                        <barButtonItem key="leftBarButtonItem" title="Log out" id="ezG-0E-Eko">
                             <connections>
                                 <action selector="logoutButtonPressed:" destination="rdu-ly-udt" id="NKN-N5-Bui"/>
                                 <segue destination="Uh7-xv-4M0" kind="show" identifier="logOutSegue" id="jsI-bt-Hqk"/>
