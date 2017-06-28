@@ -192,15 +192,15 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Likes" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EFB-VG-T2L">
-                                                    <rect key="frame" x="28" y="254" width="40" height="47"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Likes" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c5P-3d-rdY" userLabel="Likes Label">
+                                                    <rect key="frame" x="28" y="277" width="309" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Comments" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c5P-3d-rdY">
-                                                    <rect key="frame" x="30" y="309" width="84" height="21"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Caption" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EFB-VG-T2L" userLabel="Caption Label">
+                                                    <rect key="frame" x="28" y="291" width="327" height="47"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
@@ -209,9 +209,9 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="commentsLabel" destination="c5P-3d-rdY" id="Q1c-IZ-Fgj"/>
+                                            <outlet property="captionLabel" destination="EFB-VG-T2L" id="Mdg-Kb-R0A"/>
                                             <outlet property="gramImage" destination="DQK-Tf-WAw" id="SQf-CZ-j30"/>
-                                            <outlet property="likesLabel" destination="EFB-VG-T2L" id="OCC-Oe-Qhm"/>
+                                            <outlet property="likesLabel" destination="c5P-3d-rdY" id="oAz-3r-Nmo"/>
                                             <outlet property="usernameLabel" destination="Z7Z-bG-jrY" id="7Lw-c0-NjJ"/>
                                         </connections>
                                     </tableViewCell>

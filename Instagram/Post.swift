@@ -36,21 +36,7 @@ class Post: NSObject {
         return nil
     }
     
-    class func retrievePosts() {
-        
-        let query = PFQuery(className: "Post")
-        query.order(byDescending: "createdAt")
-        query.includeKey("author")
-        query.limit = 20
-        
-        query.findObjectsInBackground { (posts: [PFObject]?, error: Error?) in
-            if posts != nil {
-                
-            } else {
-                print(error?.localizedDescription ?? "error")
-            }
-        }
-    }
+ 
     
     
     

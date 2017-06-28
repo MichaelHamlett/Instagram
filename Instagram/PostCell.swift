@@ -12,10 +12,17 @@ import ParseUI
 
 class PostCell: UITableViewCell {
 
-    @IBOutlet weak var gramImage: UIImageView!
+    @IBOutlet weak var gramImage: PFImageView!
+    @IBOutlet weak var captionLabel: UILabel!
     @IBOutlet weak var likesLabel: UILabel!
-    @IBOutlet weak var commentsLabel: UILabel!
     @IBOutlet weak var usernameLabel: UILabel!
+    
+    var instagramPost: PFObject! {
+        didSet {
+            self.gramImage.file = instagramPost["image"] as? PFFile
+            self.gramImage.loadInBackground()
+        }
+    }
     
     
     override func awakeFromNib() {

@@ -8,18 +8,20 @@
 
 import UIKit
 import Parse
+import ParseUI
 
 class FeedViewController: UIViewController, UITableViewDataSource {
     
     @IBOutlet weak var feedTableView: UITableView!
     
+    var posts: [PFObject] = []
     
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        Post.retrievePosts()
-        feedTableView.dataSource = self
         
+        feedTableView.dataSource = self
+        retrievePosts()
 
         
     }
@@ -30,12 +32,55 @@ class FeedViewController: UIViewController, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = feedTableView.dequeueReusableCell(withIdentifier: "PostCell", for: indexPath)
+        let cell = feedTableView.dequeueReusableCell(withIdentifier: "PostCell", for: indexPath) as! PostCell
+        
+        let post = posts[indexPath.row]
+        let image = post["media"] as! PFFile
+        let likes = post["likesCount"] as! Int
+        let caption = post["caption"] as! String
+        let username = (post["author"] as! PFUser).username!
+        
+        
+        //get the image data and set the UIImageView to display the image
+        image.getDataInBackground({ (image: Data?,error: Error?) in
+            if (error != nil) {
+                print(error?.localizedDescription ?? "")
+            } else {
+                let finalImage = UIImage(data: image!)
+                cell.gramImage.image = finalImage
+            }
+        })
+        
+        cell.usernameLabel.text = username
+        cell.captionLabel.text = caption
+        cell.likesLabel.text = "\(likes) likes"
+        
         return cell
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 20
+        print("tableView Count: \(posts.count):")
+        return posts.count
+    }
+    
+    func retrievePosts() {
+        
+        let query = PFQuery(className: "Post")
+        query.order(byDescending: "createdAt")
+        query.includeKey("author")
+        query.limit = 20
+        
+        query.findObjectsInBackground { (posts: [PFObject]?, error: Error?) in
+            if posts != nil {
+                //print(posts!)
+                //print(posts!.count)
+                self.posts = posts!
+                self.feedTableView.reloadData()
+                
+            } else {
+                print(error?.localizedDescription ?? "error")
+            }
+        }
     }
     
 
