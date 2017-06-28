@@ -31,7 +31,7 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XNQ-zM-I8X">
                                 <rect key="frame" x="65" y="250" width="244" height="54"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Sign In"/>
+                                <state key="normal" title="Login"/>
                                 <connections>
                                     <action selector="onSignIn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="dnP-D3-pEE"/>
                                 </connections>
@@ -78,11 +78,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7vJ-4B-f5g">
-                                <rect key="frame" x="16" y="84" width="343" height="218"/>
+                                <rect key="frame" x="16" y="84" width="343" height="290"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <button opaque="NO" alpha="0.29999999999999999" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Bg-mP-xQU" userLabel="InitiatePost">
-                                <rect key="frame" x="16" y="84" width="343" height="218"/>
+                                <rect key="frame" x="16" y="84" width="343" height="290"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="1" green="0.19466159629999999" blue="0.035768338410000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <connections>
@@ -99,7 +99,7 @@
                                 </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Write a caption..." textAlignment="natural" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="5by-o5-b96">
-                                <rect key="frame" x="16" y="318" width="343" height="30"/>
+                                <rect key="frame" x="16" y="395" width="343" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -132,7 +132,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Profile" id="Xcb-rA-Ocv"/>
+                    <tabBarItem key="tabBarItem" title="Profile" image="iconmonstr-user-7-24" id="Xcb-rA-Ocv"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="doy-5r-vDz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -142,7 +142,9 @@
         <scene sceneID="HBM-CJ-RFf">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="TCo-zy-8lD" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Post" id="JXc-lb-SoO"/>
+                    <tabBarItem key="tabBarItem" title="Post" image="iconmonstr-plus-6-24" selectedImage="iconmonstr-plus-6-24" id="JXc-lb-SoO">
+                        <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="0.0"/>
+                    </tabBarItem>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="32u-CO-q7k">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -266,7 +268,7 @@
         <scene sceneID="m5U-uV-s04">
             <objects>
                 <navigationController storyboardIdentifier="FeedVC" automaticallyAdjustsScrollViewInsets="NO" id="AKv-rS-o2O" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Feed" id="wcm-cB-Pqb"/>
+                    <tabBarItem key="tabBarItem" title="Feed" image="iconmonstr-home-7-24" selectedImage="iconmonstr-home-7-24" id="wcm-cB-Pqb"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Iw2-fz-Z9d">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -300,4 +302,9 @@
             <point key="canvasLocation" x="136.80000000000001" y="137.18140929535232"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="iconmonstr-home-7-24" width="24" height="24"/>
+        <image name="iconmonstr-plus-6-24" width="24" height="24"/>
+        <image name="iconmonstr-user-7-24" width="24" height="24"/>
+    </resources>
 </document>
