@@ -15,15 +15,25 @@ class FeedViewController: UIViewController, UITableViewDataSource {
     @IBOutlet weak var feedTableView: UITableView!
     
     var posts: [PFObject] = []
-    
+    var refreshControl = UIRefreshControl()
+
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: #selector(FeedViewController.didPullToRefresh(_:)), for: .valueChanged)
+        feedTableView.insertSubview(refreshControl, at: 0)
         
         feedTableView.dataSource = self
         retrievePosts()
 
         
+    }
+    
+    func didPullToRefresh(_ refreshControl: UIRefreshControl) {
+        
+        retrievePosts()
     }
 
     override func didReceiveMemoryWarning() {
@@ -76,6 +86,7 @@ class FeedViewController: UIViewController, UITableViewDataSource {
                 //print(posts!.count)
                 self.posts = posts!
                 self.feedTableView.reloadData()
+                self.refreshControl.endRefreshing()
                 
             } else {
                 print(error?.localizedDescription ?? "error")

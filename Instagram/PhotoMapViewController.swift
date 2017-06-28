@@ -8,7 +8,7 @@
 
 import UIKit
 
-class PhotoMapViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class PhotoMapViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate {
     
     @IBOutlet weak var instagramPost: UIImageView!
     @IBOutlet weak var postTextField: UITextField!
@@ -66,9 +66,11 @@ class PhotoMapViewController: UIViewController, UIImagePickerControllerDelegate,
     }
     
     
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        postTextField.delegate = self
         
     }
     
@@ -85,8 +87,11 @@ class PhotoMapViewController: UIViewController, UIImagePickerControllerDelegate,
     }
     
     
-    
-    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        postTextField.resignFirstResponder()
+        
+        return true
+    }
     
     
 
