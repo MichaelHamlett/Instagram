@@ -9,6 +9,7 @@
 import UIKit
 import Parse
 import ParseUI
+import QuartzCore
 
 class FeedViewController: UIViewController, UITableViewDataSource {
     
@@ -21,9 +22,12 @@ class FeedViewController: UIViewController, UITableViewDataSource {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
+        //code to set up refresh control
         refreshControl = UIRefreshControl()
         refreshControl.addTarget(self, action: #selector(FeedViewController.didPullToRefresh(_:)), for: .valueChanged)
         feedTableView.insertSubview(refreshControl, at: 0)
+        
         
         feedTableView.dataSource = self
         retrievePosts()

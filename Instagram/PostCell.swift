@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Foundation
 import Parse
 import ParseUI
 
@@ -16,6 +17,8 @@ class PostCell: UITableViewCell {
     @IBOutlet weak var captionLabel: UILabel!
     @IBOutlet weak var likesLabel: UILabel!
     @IBOutlet weak var usernameLabel: UILabel!
+    @IBOutlet weak var profileImage: UIImageView!
+    
     
     var instagramPost: PFObject! {
         didSet {
