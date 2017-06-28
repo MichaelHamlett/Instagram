@@ -1,5 +1,5 @@
 //
-//  feedViewController.swift
+//  FeedViewController.swift
 //  Instagram
 //
 //  Created by Michael Hamlett on 6/27/17.
@@ -7,18 +7,35 @@
 //
 
 import UIKit
+import Parse
 
-class FeedViewController: UIViewController {
+class FeedViewController: UIViewController, UITableViewDataSource {
+    
+    @IBOutlet weak var feedTableView: UITableView!
+    
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        Post.retrievePosts()
+        feedTableView.dataSource = self
+        
 
-        // Do any additional setup after loading the view.
+        
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = feedTableView.dequeueReusableCell(withIdentifier: "PostCell", for: indexPath)
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 20
     }
     
 

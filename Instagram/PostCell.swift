@@ -7,9 +7,17 @@
 //
 
 import UIKit
+import Parse
+import ParseUI
 
 class PostCell: UITableViewCell {
 
+    @IBOutlet weak var gramImage: UIImageView!
+    @IBOutlet weak var likesLabel: UILabel!
+    @IBOutlet weak var commentsLabel: UILabel!
+    @IBOutlet weak var usernameLabel: UILabel!
+    
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

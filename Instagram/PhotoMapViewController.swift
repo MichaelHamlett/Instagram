@@ -12,6 +12,7 @@ class PhotoMapViewController: UIViewController, UIImagePickerControllerDelegate,
     
     @IBOutlet weak var instagramPost: UIImageView!
     @IBOutlet weak var postTextField: UITextField!
+    @IBOutlet weak var initiatePostButton: UIButton!
     
     
     @IBAction func initiatePost(_ sender: Any) {
@@ -40,10 +41,12 @@ class PhotoMapViewController: UIViewController, UIImagePickerControllerDelegate,
             print("postUserImage called")
             if success {
                 print("Post Succesful")
-            self.performSegue(withIdentifier: "FeedViewController", sender: nil)
+                let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+                let vc = mainStoryboard.instantiateViewController(withIdentifier: "FeedVC") as! UINavigationController
+                self.present(vc, animated: true, completion: nil)
             }
             else {
-                print(error?.localizedDescription)
+                print(error?.localizedDescription ?? "error")
             }
         }
         
@@ -52,11 +55,12 @@ class PhotoMapViewController: UIViewController, UIImagePickerControllerDelegate,
     func imagePickerController(_ picker: UIImagePickerController,
                                didFinishPickingMediaWithInfo info: [String : Any]) {
         
-        let originalImage = info[UIImagePickerControllerOriginalImage] as! UIImage
+        //let originalImage = info[UIImagePickerControllerOriginalImage] as! UIImage
         let editedImage = info[UIImagePickerControllerEditedImage] as! UIImage
         
         // Do something with the images (based on your use case)
         instagramPost.image = editedImage
+        initiatePostButton.alpha = 0
         
         dismiss(animated: true, completion: nil)
     }

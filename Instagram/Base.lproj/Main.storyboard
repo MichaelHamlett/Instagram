@@ -64,7 +64,7 @@
             </objects>
             <point key="canvasLocation" x="136.80000000000001" y="137.18140929535232"/>
         </scene>
-        <!--Photo Map View Controller-->
+        <!--New Post-->
         <scene sceneID="j2t-P5-dTw">
             <objects>
                 <viewController id="ZHq-hU-guN" customClass="PhotoMapViewController" customModule="Instagram" customModuleProvider="target" sceneMemberID="viewController">
@@ -107,8 +107,9 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="Xbx-v4-sMB"/>
+                    <navigationItem key="navigationItem" title="New Post" id="Xbx-v4-sMB"/>
                     <connections>
+                        <outlet property="initiatePostButton" destination="3Bg-mP-xQU" id="PLm-a2-che"/>
                         <outlet property="instagramPost" destination="7vJ-4B-f5g" id="ANZ-SP-p1E"/>
                         <outlet property="postTextField" destination="5by-o5-b96" id="ZBj-d4-vep"/>
                     </connections>
@@ -158,7 +159,7 @@
         <!--Instagram-->
         <scene sceneID="Xcr-Ka-ouS">
             <objects>
-                <viewController storyboardIdentifier="FeedViewController" id="rdu-ly-udt" customClass="FeedViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="FeedViewController" id="rdu-ly-udt" customClass="FeedViewController" customModule="Instagram" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="7Av-0d-fA7"/>
                         <viewControllerLayoutGuide type="bottom" id="Qeg-1z-0jv"/>
@@ -179,11 +180,12 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="338.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DQK-Tf-WAw">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DQK-Tf-WAw" userLabel="Gram Image" customClass="PFImageView">
                                                     <rect key="frame" x="0.0" y="29" width="375" height="240"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <color key="backgroundColor" red="0.26809853509999998" green="1" blue="0.99661949849999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z7Z-bG-jrY">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z7Z-bG-jrY" userLabel="Username Label">
                                                     <rect key="frame" x="28" y="0.0" width="42" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -191,7 +193,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Likes" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EFB-VG-T2L">
-                                                    <rect key="frame" x="28" y="287" width="40" height="14"/>
+                                                    <rect key="frame" x="28" y="254" width="40" height="47"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
@@ -206,6 +208,12 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="commentsLabel" destination="c5P-3d-rdY" id="Q1c-IZ-Fgj"/>
+                                            <outlet property="gramImage" destination="DQK-Tf-WAw" id="SQf-CZ-j30"/>
+                                            <outlet property="likesLabel" destination="EFB-VG-T2L" id="OCC-Oe-Qhm"/>
+                                            <outlet property="usernameLabel" destination="Z7Z-bG-jrY" id="7Lw-c0-NjJ"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -213,6 +221,9 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="Instagram" id="YQF-i2-VaB"/>
+                    <connections>
+                        <outlet property="feedTableView" destination="yKS-Kp-0qq" id="NVK-Lk-Cad"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TzZ-jv-gFR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -241,7 +252,7 @@
         <!--Feed-->
         <scene sceneID="m5U-uV-s04">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="AKv-rS-o2O" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="FeedVC" automaticallyAdjustsScrollViewInsets="NO" id="AKv-rS-o2O" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Feed" id="wcm-cB-Pqb"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Iw2-fz-Z9d">
