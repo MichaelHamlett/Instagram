@@ -84,6 +84,21 @@ class FeedViewController: UIViewController, UITableViewDataSource {
     }
     
 
+  
+    @IBAction func logoutButtonPressed(_ sender: Any) {
+        PFUser.logOutInBackground { (error: Error?) in
+            if let error = error{
+                print(error.localizedDescription)
+            } else {
+                print("logout succesful")
+                self.performSegue(withIdentifier: "logOutSegue", sender: self)
+            }
+            
+        }
+    }
+    
+    
+
     /*
     // MARK: - Navigation
 
