@@ -7,8 +7,9 @@
 //
 
 import UIKit
+import Fusuma
 
-class PhotoMapViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate {
+class PhotoMapViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate, FusumaDelegate {
     
     @IBOutlet weak var instagramPost: UIImageView!
     @IBOutlet weak var postTextField: UITextField!
@@ -16,6 +17,8 @@ class PhotoMapViewController: UIViewController, UIImagePickerControllerDelegate,
     
     
     @IBAction func initiatePost(_ sender: Any) {
+        
+        /*
         let vc = UIImagePickerController()
         vc.delegate = self
         vc.allowsEditing = true
@@ -32,7 +35,14 @@ class PhotoMapViewController: UIViewController, UIImagePickerControllerDelegate,
         }
         
         self.present(vc, animated: true, completion: nil)
+        */
         
+        let fusuma = FusumaViewController()
+        fusuma.delegate = self
+        fusuma.hasVideo = false
+        self.present(fusuma, animated: true, completion: nil)
+ 
+ 
     }
     
     @IBAction func sharePost(_ sender: Any) {
@@ -99,6 +109,34 @@ class PhotoMapViewController: UIViewController, UIImagePickerControllerDelegate,
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    
+    
+    
+    
+    
+    
+    func fusumaImageSelected(_ image: UIImage, source: FusumaMode){
+        instagramPost.image = image
+        initiatePostButton.alpha = 0
+        print("image selected")
+        
+    }
+    func fusumaMultipleImageSelected(_ images: [UIImage], source: FusumaMode){
+        
+    }
+    func fusumaVideoCompleted(withFileURL fileURL: URL){
+        
+    }
+    func fusumaCameraRollUnauthorized(){
+        
+    }
+    
+    
+    
+    
+    
+    
 
 
 }
