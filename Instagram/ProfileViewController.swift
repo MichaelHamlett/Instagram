@@ -15,6 +15,9 @@ class ProfileViewController: UIViewController, UICollectionViewDataSource {
     
     @IBOutlet weak var collectionView: UICollectionView!
     
+    @IBOutlet weak var nameLabel: UILabel!
+    
+    
     var posts: [PFObject] = []
 
     override func viewDidLoad() {
@@ -31,6 +34,8 @@ class ProfileViewController: UIViewController, UICollectionViewDataSource {
         
         collectionView.dataSource = self
         retrievePosts()
+        
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -60,6 +65,8 @@ class ProfileViewController: UIViewController, UICollectionViewDataSource {
                 cell.gramPost.image = finalImage
             }
         })
+        
+        nameLabel.text = (post["author"] as! PFUser).username!
         
         return cell
         

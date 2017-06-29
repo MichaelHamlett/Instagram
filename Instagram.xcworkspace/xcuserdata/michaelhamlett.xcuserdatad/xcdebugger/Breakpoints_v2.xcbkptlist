@@ -263,11 +263,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Instagram/ProfileViewController.swift"
-            timestampString = "520461394.20329"
+            timestampString = "520465992.113137"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "75"
-            endingLineNumber = "75"
+            startingLineNumber = "82"
+            endingLineNumber = "82"
             landmarkName = "retrievePosts()"
             landmarkType = "7">
          </BreakpointContent>

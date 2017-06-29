@@ -62,6 +62,12 @@ class PhotoMapViewController: UIViewController, UIImagePickerControllerDelegate,
         
     }
     
+    @IBAction func clearButtonPressed(_ sender: Any) {
+        instagramPost.image = nil
+        initiatePostButton.alpha = 0.3
+    }
+    
+    
     func imagePickerController(_ picker: UIImagePickerController,
                                didFinishPickingMediaWithInfo info: [String : Any]) {
         
