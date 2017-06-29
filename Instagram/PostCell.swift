@@ -20,6 +20,9 @@ class PostCell: UITableViewCell {
     @IBOutlet weak var profileImage: UIImageView!
     
     
+    @IBOutlet weak var timeStampLabel: UILabel!
+    
+    
     var instagramPost: PFObject! {
         didSet {
             self.gramImage.file = instagramPost["image"] as? PFFile

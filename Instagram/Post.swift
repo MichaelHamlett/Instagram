@@ -11,8 +11,16 @@ import Parse
 
 class Post: NSObject {
     
-    class func postUserImage(image: UIImage?, withCaption caption: String?, withCompletion completion: PFBooleanResultBlock?) {
+   
 
+    
+    class func postUserImage(image: UIImage?, withCaption caption: String?, withCompletion completion: PFBooleanResultBlock?) {
+        let date = Date()
+        let formatter = DateFormatter()
+        formatter.dateFormat = "MM.dd.yyyy HH:mm"
+        let result = formatter.string(from: date)
+        
+        
         let post = PFObject(className: "Post")
         
         post["media"] = getPFFileFromImage(image: image)
@@ -20,6 +28,7 @@ class Post: NSObject {
         post["caption"] = caption
         post["likesCount"] = 0
         post["commentsCount"] = 0
+        post["timestamp"] = result
         
         post.saveInBackground(block: completion)
         

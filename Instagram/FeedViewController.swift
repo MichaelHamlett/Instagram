@@ -54,6 +54,9 @@ class FeedViewController: UIViewController, UITableViewDataSource {
         let caption = post["caption"] as! String
         let username = (post["author"] as! PFUser).username!
         
+        if let timestamp = post["timestamp"] {
+            cell.timeStampLabel.text = timestamp as! String
+        }
         
         //get the image data and set the UIImageView to display the image
         image.getDataInBackground({ (image: Data?,error: Error?) in
@@ -68,6 +71,7 @@ class FeedViewController: UIViewController, UITableViewDataSource {
         cell.usernameLabel.text = username
         cell.captionLabel.text = caption
         cell.likesLabel.text = "\(likes) likes"
+        
         
         return cell
     }
