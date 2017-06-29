@@ -10,6 +10,8 @@ target 'Instagram' do
     pod 'ParseUI'
     pod 'Fusuma'
     use_frameworks!
+
+    pod 'Pastel'
   target 'InstagramTests' do
     inherit! :search_paths
     # Pods for testing

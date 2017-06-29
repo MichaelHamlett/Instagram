@@ -110,7 +110,8 @@ class FeedViewController: UIViewController, UITableViewDataSource {
                 print(error.localizedDescription)
             } else {
                 print("logout succesful")
-                self.performSegue(withIdentifier: "logOutSegue", sender: self)
+                PFUser.logOutInBackground()
+                //self.performSegue(withIdentifier: "logOutSegue", sender: self)
             }
             
         }
