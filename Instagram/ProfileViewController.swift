@@ -69,12 +69,16 @@ class ProfileViewController: UIViewController, UICollectionViewDataSource {
    
     func retrievePosts() {
         
-        let query = PFQuery(className: "Post")
+        let user = PFUser.current()
+        //print(name)
+        
+        let predicate = NSPredicate(format: "author = %@", user!)
+        let query = PFQuery(className: "Post", predicate: predicate)
         query.order(byDescending: "createdAt")
         query.includeKey("author")
         query.limit = 20
         
-        //query.whereKey("author", matchesKey: "username", in: posts)
+        
         query.findObjectsInBackground { (posts: [PFObject]?, error: Error?) in
             if posts != nil {
                 //print(posts!)

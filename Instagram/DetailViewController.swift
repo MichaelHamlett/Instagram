@@ -18,6 +18,7 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var usernameLabel: UILabel!
     @IBOutlet weak var likesLabel: UILabel!
     @IBOutlet weak var captionLabel: UILabel!
+    @IBOutlet weak var timeStampLabel: UILabel!
     
     var post: PFObject?
     
@@ -33,6 +34,9 @@ class DetailViewController: UIViewController {
             let likes = post["likesCount"] as! Int
             let caption = post["caption"] as! String
             let username = (post["author"] as! PFUser).username!
+            let timestamp = post["timestamp"]
+            
+           
             
             image.getDataInBackground({ (image: Data?,error: Error?) in
                 if (error != nil) {
@@ -46,6 +50,7 @@ class DetailViewController: UIViewController {
             usernameLabel.text = username
             captionLabel.text = caption
             likesLabel.text = "\(likes) likes"
+            timeStampLabel.text = (timestamp as! String)
         }
 
         
