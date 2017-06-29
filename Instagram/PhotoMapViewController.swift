@@ -42,7 +42,7 @@ class PhotoMapViewController: UIViewController, UIImagePickerControllerDelegate,
             if success {
                 print("Post Succesful")
                 let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-                let vc = mainStoryboard.instantiateViewController(withIdentifier: "FeedVC") as! UINavigationController
+                let vc = mainStoryboard.instantiateViewController(withIdentifier: "TabBarController") as! UITabBarController
                 self.present(vc, animated: true, completion: nil)
             }
             else {

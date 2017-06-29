@@ -20,6 +20,9 @@
 		CC4E1E021F01C74E00C4B31A /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC4E1E011F01C74E00C4B31A /* LoginViewController.swift */; };
 		CC4E1E041F03076300C4B31A /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC4E1E031F03076300C4B31A /* Post.swift */; };
 		CC7DFD571F03150800B84728 /* PostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC7DFD561F03150800B84728 /* PostCell.swift */; };
+		CCCC6EB01F046D69008D9D53 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCCC6EAF1F046D69008D9D53 /* ProfileViewController.swift */; };
+		CCCC6EB41F047320008D9D53 /* gramProfileCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCCC6EB31F047320008D9D53 /* gramProfileCell.swift */; };
+		CCCC6EB61F047FAC008D9D53 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCCC6EB51F047FAC008D9D53 /* DetailViewController.swift */; };
 		F83E93E52092A2BB515B80EA /* Pods_Instagram.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 31650B9C26BEF6D81053D95C /* Pods_Instagram.framework */; };
 /* End PBXBuildFile section */
 
@@ -66,6 +69,9 @@
 		CC4E1E011F01C74E00C4B31A /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		CC4E1E031F03076300C4B31A /* Post.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		CC7DFD561F03150800B84728 /* PostCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostCell.swift; sourceTree = "<group>"; };
+		CCCC6EAF1F046D69008D9D53 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		CCCC6EB31F047320008D9D53 /* gramProfileCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = gramProfileCell.swift; sourceTree = "<group>"; };
+		CCCC6EB51F047FAC008D9D53 /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		F48F2400FDC586B0FF4E291F /* Pods-InstagramTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InstagramTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-InstagramTests/Pods-InstagramTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -149,6 +155,7 @@
 				CC7DFD581F03151400B84728 /* ViewControllers */,
 				CC4E1DD71F01C29C00C4B31A /* Main.storyboard */,
 				CC7DFD561F03150800B84728 /* PostCell.swift */,
+				CCCC6EB31F047320008D9D53 /* gramProfileCell.swift */,
 				CC4E1E031F03076300C4B31A /* Post.swift */,
 			);
 			path = Instagram;
@@ -178,6 +185,8 @@
 				CC4E1E011F01C74E00C4B31A /* LoginViewController.swift */,
 				CC4E1DD51F01C29C00C4B31A /* PhotoMapViewController.swift */,
 				CC46820F1F03218100BAF684 /* FeedViewController.swift */,
+				CCCC6EB51F047FAC008D9D53 /* DetailViewController.swift */,
+				CCCC6EAF1F046D69008D9D53 /* ProfileViewController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -475,10 +484,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CCCC6EB61F047FAC008D9D53 /* DetailViewController.swift in Sources */,
+				CCCC6EB41F047320008D9D53 /* gramProfileCell.swift in Sources */,
 				CC4E1E021F01C74E00C4B31A /* LoginViewController.swift in Sources */,
 				CC4E1DD61F01C29C00C4B31A /* PhotoMapViewController.swift in Sources */,
 				CC4E1DD41F01C29C00C4B31A /* AppDelegate.swift in Sources */,
 				CC4E1E041F03076300C4B31A /* Post.swift in Sources */,
+				CCCC6EB01F046D69008D9D53 /* ProfileViewController.swift in Sources */,
 				CC4682101F03218100BAF684 /* FeedViewController.swift in Sources */,
 				CC7DFD571F03150800B84728 /* PostCell.swift in Sources */,
 			);
