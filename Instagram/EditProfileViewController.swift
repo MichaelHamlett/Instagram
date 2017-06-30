@@ -10,6 +10,7 @@ import UIKit
 import Fusuma
 import Parse
 
+
 class EditProfileViewController: UIViewController, UITextFieldDelegate, FusumaDelegate{
 
     @IBOutlet weak var profileImageView: UIImageView!
@@ -48,8 +49,14 @@ class EditProfileViewController: UIViewController, UITextFieldDelegate, FusumaDe
     
     @IBAction func updateInfoPressed(_ sender: Any) {
         if let user = PFUser.current() {
-            user["profileImage"] =  Post.getPFFileFromImage(image: profileImageView.image) 
-            user["bio"] = bioTextField.text
+            
+            if profileImageView.image != nil {
+                user["profileImage"] =  Post.getPFFileFromImage(image: profileImageView.image)
+            }
+            
+            if bioTextField.text != "" {
+                user["bio"] = bioTextField.text
+            }
             
             user.saveInBackground()
             print("succesful")

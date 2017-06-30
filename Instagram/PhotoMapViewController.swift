@@ -8,6 +8,7 @@
 
 import UIKit
 import Fusuma
+import MBProgressHUD
 
 class PhotoMapViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate, FusumaDelegate {
     
@@ -47,12 +48,14 @@ class PhotoMapViewController: UIViewController, UIImagePickerControllerDelegate,
     
     @IBAction func sharePost(_ sender: Any) {
         print("sharePost pressed")
+        MBProgressHUD.showAdded(to: self.view, animated: true)
         Post.postUserImage(image: instagramPost.image, withCaption: postTextField.text) { (success: Bool, error: Error?) in
             print("postUserImage called")
             if success {
                 print("Post Succesful")
                 let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
                 let vc = mainStoryboard.instantiateViewController(withIdentifier: "TabBarController") as! UITabBarController
+                MBProgressHUD.hide(for: self.view, animated: true)
                 self.present(vc, animated: true, completion: nil)
             }
             else {

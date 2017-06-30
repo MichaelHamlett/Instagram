@@ -10,6 +10,7 @@ target 'Instagram' do
     pod 'ParseUI'
     pod 'Fusuma'
     use_frameworks!
+    pod 'MBProgressHUD'
 
     pod 'Pastel'
   target 'InstagramTests' do
