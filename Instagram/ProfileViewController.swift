@@ -14,17 +14,20 @@ import QuartzCore
 class ProfileViewController: UIViewController, UICollectionViewDataSource {
     
     @IBOutlet weak var collectionView: UICollectionView!
-
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var profileImageView: UIImageView!
     @IBOutlet weak var bioLabel: UILabel!
     
+    var user = PFUser.current()
     var posts: [PFObject] = []
-    
-    var profilePic: PFObject?
+    var refreshControl = UIRefreshControl()
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: #selector(ProfileViewController.didPullToRefresh(_:)), for: .valueChanged)
+        collectionView.insertSubview(refreshControl, at: 0)
         
         let layout = collectionView.collectionViewLayout as! UICollectionViewFlowLayout
         layout.minimumInteritemSpacing = 1
@@ -37,23 +40,8 @@ class ProfileViewController: UIViewController, UICollectionViewDataSource {
         
         collectionView.dataSource = self
         
-        let user = PFUser.current()
-        //print(name)
-        if let bio = user?["bio"]{
-            bioLabel.text = (bio as! String)
-        }
-        if user!["profileImage"] != nil {
-            let profilePic = user!["profileImage"] as! PFFile
-            profilePic.getDataInBackground { (image: Data?, error: Error?) in
-                if (error != nil) {
-                    print(error?.localizedDescription ?? "error")
-                } else {
-                    let finalImage = UIImage(data: image!)
-                    self.profileImageView.image = finalImage
-                }
-            }
-        }
-    
+     
+        retrieveProfileData()
         retrievePosts()
         
         
@@ -113,8 +101,9 @@ class ProfileViewController: UIViewController, UICollectionViewDataSource {
                 //print(posts!)
                 //print(posts!.count)
                 self.posts = posts!
+                self.user = PFUser.current()
                 self.collectionView.reloadData()
-                //self.refreshControl.endRefreshing()
+                self.refreshControl.endRefreshing()
                 
             } else {
                 print(error?.localizedDescription ?? "error")
@@ -136,6 +125,29 @@ class ProfileViewController: UIViewController, UICollectionViewDataSource {
             }
         }
         
+    }
+    
+    func didPullToRefresh(_ refreshControl: UIRefreshControl) {
+        
+        retrieveProfileData()
+        retrievePosts()
+    }
+    
+    func retrieveProfileData() {
+        if let bio = user?["bio"]{
+            bioLabel.text = (bio as! String)
+        }
+        if user!["profileImage"] != nil {
+            let profilePic = user!["profileImage"] as! PFFile
+            profilePic.getDataInBackground { (image: Data?, error: Error?) in
+                if (error != nil) {
+                    print(error?.localizedDescription ?? "error")
+                } else {
+                    let finalImage = UIImage(data: image!)
+                    self.profileImageView.image = finalImage
+                }
+            }
+        }
     }
     
         

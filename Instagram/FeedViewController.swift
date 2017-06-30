@@ -54,7 +54,20 @@ class FeedViewController: UIViewController, UITableViewDataSource {
         let caption = post["caption"] as! String
         let username = (post["author"] as! PFUser).username!
         let timestamp = post["timestamp"]
+        let user = post["author"] as! PFUser
         
+        //setting profile image
+        if user["profileImage"] != nil {
+            let profilePic = user["profileImage"] as! PFFile
+            profilePic.getDataInBackground { (image: Data?, error: Error?) in
+                if (error != nil) {
+                    print(error?.localizedDescription ?? "error")
+                } else {
+                    let finalImage = UIImage(data: image!)
+                    cell.profileImage.image = finalImage
+                }
+            }
+        }
         
         
         //get the image data and set the UIImageView to display the image
