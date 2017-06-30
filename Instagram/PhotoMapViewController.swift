@@ -126,7 +126,8 @@ class PhotoMapViewController: UIViewController, UIImagePickerControllerDelegate,
     
     
     func fusumaImageSelected(_ image: UIImage, source: FusumaMode){
-        instagramPost.image = image
+        let newimage = resize(image: image, newSize: CGSize(width: 1000, height: 1000))
+        instagramPost.image = newimage
         initiatePostButton.alpha = 0
         print("image selected")
         
