@@ -60,8 +60,18 @@ class DetailViewController: UIViewController {
                 }
             })
             
+            //Setting up text so that username appears bold before the caption
+            let boldName = username
+            let attributedString = NSMutableAttributedString(string:" \(caption)")
+            let attrs = [NSFontAttributeName : UIFont.boldSystemFont(ofSize: 15)]
+            let boldString = NSMutableAttributedString(string:boldName, attributes:attrs)
+            boldString.append(attributedString)
+            
+            
+            
+            
             usernameLabel.text = username
-            captionLabel.text = caption
+            captionLabel.attributedText = boldString
             likesLabel.text = "\(likes) likes"
             timeStampLabel.text = (timestamp as! String)
         }
