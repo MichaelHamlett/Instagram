@@ -24,6 +24,7 @@
 		CCCC6EB41F047320008D9D53 /* gramProfileCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCCC6EB31F047320008D9D53 /* gramProfileCell.swift */; };
 		CCCC6EB61F047FAC008D9D53 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCCC6EB51F047FAC008D9D53 /* DetailViewController.swift */; };
 		CCCC6EBC1F05BB5A008D9D53 /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCCC6EBB1F05BB5A008D9D53 /* EditProfileViewController.swift */; };
+		CCE568DA1F06070E00E0BF29 /* SwiftNotice.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE568D91F06070E00E0BF29 /* SwiftNotice.swift */; };
 		F83E93E52092A2BB515B80EA /* Pods_Instagram.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 31650B9C26BEF6D81053D95C /* Pods_Instagram.framework */; };
 /* End PBXBuildFile section */
 
@@ -74,6 +75,7 @@
 		CCCC6EB31F047320008D9D53 /* gramProfileCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = gramProfileCell.swift; sourceTree = "<group>"; };
 		CCCC6EB51F047FAC008D9D53 /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		CCCC6EBB1F05BB5A008D9D53 /* EditProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditProfileViewController.swift; sourceTree = "<group>"; };
+		CCE568D91F06070E00E0BF29 /* SwiftNotice.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SwiftNotice.swift; path = "../../../Downloads/SwiftNotice-swift3 2/SwiftNotice.swift"; sourceTree = "<group>"; };
 		F48F2400FDC586B0FF4E291F /* Pods-InstagramTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InstagramTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-InstagramTests/Pods-InstagramTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -197,6 +199,7 @@
 		CC7DFD591F03152400B84728 /* Misc */ = {
 			isa = PBXGroup;
 			children = (
+				CCE568D91F06070E00E0BF29 /* SwiftNotice.swift */,
 				CC4E1DDC1F01C29C00C4B31A /* LaunchScreen.storyboard */,
 				CC4E1DDA1F01C29C00C4B31A /* Assets.xcassets */,
 				CC4E1DDF1F01C29C00C4B31A /* Info.plist */,
@@ -493,6 +496,7 @@
 				CC4E1DD61F01C29C00C4B31A /* PhotoMapViewController.swift in Sources */,
 				CC4E1DD41F01C29C00C4B31A /* AppDelegate.swift in Sources */,
 				CC4E1E041F03076300C4B31A /* Post.swift in Sources */,
+				CCE568DA1F06070E00E0BF29 /* SwiftNotice.swift in Sources */,
 				CCCC6EB01F046D69008D9D53 /* ProfileViewController.swift in Sources */,
 				CC4682101F03218100BAF684 /* FeedViewController.swift in Sources */,
 				CCCC6EBC1F05BB5A008D9D53 /* EditProfileViewController.swift in Sources */,

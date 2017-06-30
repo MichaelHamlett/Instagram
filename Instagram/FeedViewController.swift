@@ -11,24 +11,26 @@ import Parse
 import ParseUI
 import QuartzCore
 
-class FeedViewController: UIViewController, UITableViewDataSource {
+class FeedViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UIScrollViewDelegate{
     
     @IBOutlet weak var feedTableView: UITableView!
     
     var posts: [PFObject] = []
     var refreshControl = UIRefreshControl()
+    var isMoreDataLoading = false
+    var queryLimit = 15
+    //var loadingMoreView:InfiniteScrollActivityView?
 
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
+    
         //code to set up refresh control
         refreshControl = UIRefreshControl()
         refreshControl.addTarget(self, action: #selector(FeedViewController.didPullToRefresh(_:)), for: .valueChanged)
         feedTableView.insertSubview(refreshControl, at: 0)
         
-        
+        feedTableView.delegate = self
         feedTableView.dataSource = self
         retrievePosts()
 
@@ -95,11 +97,11 @@ class FeedViewController: UIViewController, UITableViewDataSource {
     }
     
     func retrievePosts() {
-        
         let query = PFQuery(className: "Post")
         query.order(byDescending: "createdAt")
         query.includeKey("author")
-        query.limit = 20
+        queryLimit += 5
+        query.limit = queryLimit
         
         query.findObjectsInBackground { (posts: [PFObject]?, error: Error?) in
             if posts != nil {
@@ -107,7 +109,9 @@ class FeedViewController: UIViewController, UITableViewDataSource {
                 //print(posts!.count)
                 self.posts = posts!
                 self.feedTableView.reloadData()
+                self.isMoreDataLoading = false
                 self.refreshControl.endRefreshing()
+                print(self.queryLimit)
                 
             } else {
                 print(error?.localizedDescription ?? "error")
@@ -130,7 +134,23 @@ class FeedViewController: UIViewController, UITableViewDataSource {
         }
     }
     
-    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        if (!isMoreDataLoading) {
+            
+            // Calculate the position of one screen length before the bottom of the results
+            let scrollViewContentHeight = feedTableView.contentSize.height
+            let scrollOffsetThreshold = scrollViewContentHeight - feedTableView.bounds.size.height
+            
+            // When the user has scrolled past the threshold, start requesting
+            if(scrollView.contentOffset.y > scrollOffsetThreshold && feedTableView.isDragging) {
+                self.pleaseWait()
+                isMoreDataLoading = true
+                retrievePosts()
+                self.clearAllNotice()
+            }
+        }
+        
+    }
 
    
     /*
