@@ -23,6 +23,7 @@
 		CCCC6EB01F046D69008D9D53 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCCC6EAF1F046D69008D9D53 /* ProfileViewController.swift */; };
 		CCCC6EB41F047320008D9D53 /* gramProfileCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCCC6EB31F047320008D9D53 /* gramProfileCell.swift */; };
 		CCCC6EB61F047FAC008D9D53 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCCC6EB51F047FAC008D9D53 /* DetailViewController.swift */; };
+		CCCC6EBC1F05BB5A008D9D53 /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCCC6EBB1F05BB5A008D9D53 /* EditProfileViewController.swift */; };
 		F83E93E52092A2BB515B80EA /* Pods_Instagram.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 31650B9C26BEF6D81053D95C /* Pods_Instagram.framework */; };
 /* End PBXBuildFile section */
 
@@ -72,6 +73,7 @@
 		CCCC6EAF1F046D69008D9D53 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		CCCC6EB31F047320008D9D53 /* gramProfileCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = gramProfileCell.swift; sourceTree = "<group>"; };
 		CCCC6EB51F047FAC008D9D53 /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		CCCC6EBB1F05BB5A008D9D53 /* EditProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditProfileViewController.swift; sourceTree = "<group>"; };
 		F48F2400FDC586B0FF4E291F /* Pods-InstagramTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InstagramTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-InstagramTests/Pods-InstagramTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -187,6 +189,7 @@
 				CC46820F1F03218100BAF684 /* FeedViewController.swift */,
 				CCCC6EB51F047FAC008D9D53 /* DetailViewController.swift */,
 				CCCC6EAF1F046D69008D9D53 /* ProfileViewController.swift */,
+				CCCC6EBB1F05BB5A008D9D53 /* EditProfileViewController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -492,6 +495,7 @@
 				CC4E1E041F03076300C4B31A /* Post.swift in Sources */,
 				CCCC6EB01F046D69008D9D53 /* ProfileViewController.swift in Sources */,
 				CC4682101F03218100BAF684 /* FeedViewController.swift in Sources */,
+				CCCC6EBC1F05BB5A008D9D53 /* EditProfileViewController.swift in Sources */,
 				CC7DFD571F03150800B84728 /* PostCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

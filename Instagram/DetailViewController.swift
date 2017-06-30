@@ -35,9 +35,22 @@ class DetailViewController: UIViewController {
             let caption = post["caption"] as! String
             let username = (post["author"] as! PFUser).username!
             let timestamp = post["timestamp"]
+            let user = post["author"] as! PFUser
+            
+            if user["profileImage"] != nil {
+                let profilePic = user["profileImage"] as! PFFile
+                profilePic.getDataInBackground { (image: Data?, error: Error?) in
+                    if (error != nil) {
+                        print(error?.localizedDescription ?? "error")
+                    } else {
+                        let finalImage = UIImage(data: image!)
+                        self.profileImageView.image = finalImage
+                    }
+                }
+            }
             
            
-            
+            //get image post
             image.getDataInBackground({ (image: Data?,error: Error?) in
                 if (error != nil) {
                     print(error?.localizedDescription ?? "")

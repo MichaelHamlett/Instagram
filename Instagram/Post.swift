@@ -30,6 +30,8 @@ class Post: NSObject {
         post["commentsCount"] = 0
         post["timestamp"] = result
         
+        
+        
         post.saveInBackground(block: completion)
         
     }

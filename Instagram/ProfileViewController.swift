@@ -14,11 +14,14 @@ import QuartzCore
 class ProfileViewController: UIViewController, UICollectionViewDataSource {
     
     @IBOutlet weak var collectionView: UICollectionView!
-    
+
     @IBOutlet weak var nameLabel: UILabel!
-    
+    @IBOutlet weak var profileImageView: UIImageView!
+    @IBOutlet weak var bioLabel: UILabel!
     
     var posts: [PFObject] = []
+    
+    var profilePic: PFObject?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,6 +36,24 @@ class ProfileViewController: UIViewController, UICollectionViewDataSource {
         
         
         collectionView.dataSource = self
+        
+        let user = PFUser.current()
+        //print(name)
+        if let bio = user?["bio"]{
+            bioLabel.text = (bio as! String)
+        }
+        if user!["profileImage"] != nil {
+            let profilePic = user!["profileImage"] as! PFFile
+            profilePic.getDataInBackground { (image: Data?, error: Error?) in
+                if (error != nil) {
+                    print(error?.localizedDescription ?? "error")
+                } else {
+                    let finalImage = UIImage(data: image!)
+                    self.profileImageView.image = finalImage
+                }
+            }
+        }
+    
         retrievePosts()
         
         
@@ -77,7 +98,8 @@ class ProfileViewController: UIViewController, UICollectionViewDataSource {
     func retrievePosts() {
         
         let user = PFUser.current()
-        //print(name)
+
+        
         
         let predicate = NSPredicate(format: "author = %@", user!)
         let query = PFQuery(className: "Post", predicate: predicate)
@@ -103,14 +125,17 @@ class ProfileViewController: UIViewController, UICollectionViewDataSource {
     
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let cell = sender as! UICollectionViewCell
         
-        if let indexPath = collectionView.indexPath(for: cell){
-            let post = posts[indexPath.row]
-            let detailViewController = segue.destination as! DetailViewController
-            detailViewController.post = post
+        if segue.identifier == "collectionViewSegue"{
+            let cell = sender as! UICollectionViewCell
             
+            if let indexPath = collectionView.indexPath(for: cell){
+                let post = posts[indexPath.row]
+                let detailViewController = segue.destination as! DetailViewController
+                detailViewController.post = post
+            }
         }
+        
     }
     
         
