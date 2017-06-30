@@ -128,7 +128,8 @@ class FeedViewController: UIViewController, UITableViewDataSource, UITableViewDe
             } else {
                 print("logout succesful")
                 PFUser.logOutInBackground()
-                //self.performSegue(withIdentifier: "logOutSegue", sender: self)
+                let logInScreen = self.storyboard?.instantiateInitialViewController()
+                self.present(logInScreen!, animated: true, completion: nil)
             }
             
         }

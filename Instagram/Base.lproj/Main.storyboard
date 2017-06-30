@@ -571,7 +571,6 @@
                         <barButtonItem key="leftBarButtonItem" title="Log out" id="ezG-0E-Eko">
                             <connections>
                                 <action selector="logoutButtonPressed:" destination="rdu-ly-udt" id="NKN-N5-Bui"/>
-                                <segue destination="Uh7-xv-4M0" kind="show" identifier="logOutSegue" id="jsI-bt-Hqk"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
