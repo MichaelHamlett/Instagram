@@ -1,4 +1,4 @@
-# Project 3 - *Name of App Here*
+# Project 3 - Instagram
 
 Instagram is a photo sharing app using Parse as its backend.
 
@@ -53,6 +53,9 @@ GIF created with [LiceCap](http://www.cockos.com/licecap/).
 List an 3rd party libraries, icons, graphics, or other assets you used in your app.
 
 - [AFNetworking](https://github.com/AFNetworking/AFNetworking) - networking task library
+-iconmonstr
+-Fusuma Swift library
+-Parse
 
 
 ## Notes
